@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import "../App.css";
 import Nav from "./Nav";
-import hogs from "../porkers_data";
-import HelloWorld from "./HelloWorld";
+import hogs from "../porkers_data"; // data
+import HelloWorld from "./HelloWorld"; // test page.
+import HogsList from "./HogsList"; //Hog list.
 
 class App extends Component {
-  render() {
+
+  state = {
+    hogs: hogs
+  }
+
+  render(){
     return (
       <div className="App">
         <Nav />
         <HelloWorld />
+        <HogsList hogs={hogs}/>
       </div>
-    );
+    )
   }
 }
 
