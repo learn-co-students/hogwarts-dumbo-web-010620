@@ -5,9 +5,9 @@ class HogCard extends Component {
 
 
     render(){
-        return(
+        return
             <div className="pigTile">
-                <img src={`.src/hog-img/${this.props.name.join('').jpeg}`}></img>`
+                {/* <img src={`.src/hog-img/${this.props.name.join('').jpeg}`}></img>` */}
                 {this.props.name}
 
             </div>
