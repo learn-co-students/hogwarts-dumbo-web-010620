@@ -28,7 +28,7 @@ export default class HogTile extends Component{
                     <h2>{name}</h2>
                 </div>
                 <div>
-                    {this.state.isClicked ? <HogDetail hog={this.props.hog} /> : null}
+                    {this.state.isClicked ? <HogDetail hog={this.props.hog} /> : null }
 
                     <button onClick={this.handleClick}>{this.state.isClicked ? "less detail" : "more detail"}</button>
                 </div>
