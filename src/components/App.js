@@ -38,6 +38,10 @@ changeFilterTerm= (termFromChild) => {
 returnFilterArray = () => {
   let returnArray = this.state.hogs
   
+  returnArray.sort((a, b) =>  a.name.localeCompare(b.name))
+  
+  returnArray.sort((a, b) =>  a.weight - b.weight)
+  
   if (this.state.filterTerm === "Greased") 
     returnArray= this.state.hogs.filter( (hog) =>{
       return hog.greased
@@ -47,19 +51,23 @@ returnFilterArray = () => {
     returnArray= this.state.hogs.filter( (hog) =>{
       return !hog.greased
     })
+    
 
+    returnArray = returnArray.filter((hog) => {
+      return hog.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()) 
+    })
   return returnArray
 }
 
-returnSearchArray = () => {
-  let filteredArrayByName = this.state.hogs.filter((hog) => {
-    return hog.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()) 
-  })
-  return filteredArrayByName
-}
+// returnSearchArray = () => {
+//   let filteredArrayByName = this.state.hogs.filter((hog) => {
+//     return hog.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()) 
+//   })
+//   return filteredArrayByName
+// }
 
   render() {
-console.log(this.state)
+// console.log(this.state)
     return (
       <div className="App">
         <Nav />
@@ -72,7 +80,7 @@ console.log(this.state)
         />
        < HogContainer 
        hogs = {this.returnFilterArray()} 
-       returnSearchArray = {this.returnSearchArray()}
+      //  returnSearchArray = {this.returnSearchArray()}
        />
 
       
